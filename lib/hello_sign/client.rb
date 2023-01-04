@@ -158,9 +158,9 @@ module HelloSign
       elsif auth_token
         connection.authorization :Bearer, auth_token
       elsif api_key
-        connection.basic_auth api_key, ''
+        connection.authorization :basic, api_key, ''
       elsif email_address
-        connection.basic_auth email_address, password
+        connection.authorization :basic, email_address, password
       else
       end
       if proxy_uri
